@@ -1,0 +1,17 @@
+.btn {
+    margin: 5px;
+}
+
+.page-header {
+    height: 20vh;
+    /* background-image: url("../images/GT.jpg");
+    background-repeat: no-repeat;
+    background-size: 65vh; */
+    margin: 0 auto;
+}
+
+#head {
+    margin: 0 auto;
+    height: 100%;
+    
+}
