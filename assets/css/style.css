@@ -1,5 +1,10 @@
+body {
+    background-image: url("../images/grass.jpg");
+}
+
 .btn {
     margin: 5px;
+    font-weight: bolder;
 }
 
 .page-header {
@@ -7,11 +12,26 @@
     /* background-image: url("../images/GT.jpg");
     background-repeat: no-repeat;
     background-size: 65vh; */
-    margin: 0 auto;
+    /* margin: 0 auto;
+    background-color: white; */
+    text-align: center;
 }
 
 #head {
     margin: 0 auto;
     height: 100%;
+    text-align: center;
     
+}
+
+#input-label {
+    color: navy;
+    padding: 2px 3px;
+    font-weight: bold;
+    font-size: x-large;
+    
+}
+
+.custom-select {
+    font-weight: bold;
 }
