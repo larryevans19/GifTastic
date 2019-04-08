@@ -42,7 +42,7 @@ body {
     text-shadow: 1px 1px 0 navy;
     display: inline-flex;
     flex-wrap: wrap;
-    margin: 1rem;
+    margin: .5rem;
     text-align: center;
 }
 
@@ -80,5 +80,5 @@ img {
     margin-right: .15rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    padding-top: .25rem;
+    padding-top: .15rem;
 }
