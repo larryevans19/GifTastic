@@ -81,8 +81,17 @@ img {
     margin-top: 0rem;
     margin-bottom: 0rem;
     padding-top: .15rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 navy;
+   
 }
 
 #school {
     width: 50%;
+}
+
+i {
+    padding-left: .25rem;
+    padding-right: .25rem;
 }

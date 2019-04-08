@@ -31,6 +31,7 @@ function gimmeButtons() {
 function displaySchoolInfo() {
 
     $("#images").empty();
+    let deleted = 0
     let theGoods = "";
     const school = $(this).attr("data-name");
     console.log("school:", school)
@@ -52,7 +53,7 @@ function displaySchoolInfo() {
         //images we want to display.
         for (var x = 0; x < (theGoods.length - 15); x++) {
 
-            const imageDiv = $(`<div id="d${x}">`);
+            const imageDiv = $(`<div class="${x}">`);
 
             let rating = theGoods[x].rating;
             let title = theGoods[x].title;
@@ -64,24 +65,25 @@ function displaySchoolInfo() {
             };
 
             const p = $("<p class='bottom'>").html(`Rating: ${rating} <br> Title: ${title} <br> Source: ${source}`);
-            // const trash = $("<i class='fas fa-trash-alt'></i>");
-            const p2 = $("<p class='delete'>").html(`<i class="fas fa-dumpster">   Put Me in the Dumpster!</i>`);
-            const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download="${title}" target="_blank"><i class="fas fa-download">OneTOUCHDOWNload!</i>`);
+
+            const trash = $(`<p class='delete ${x}'>`).html(`<button class='delete' id='${x}'><i class="fas fa-dumpster"></i>  Put Me in the Dumpster!</button>`);
+
+            const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download="${title}" target="_blank" id="fileRequest"> <i class="fas fa-download">   </i>OneTOUCHDOWNload!</button>`);
 
             let schoolImage = $("<img>");
 
 
-            schoolImage.attr("id", x);
+            schoolImage.addClass(x);
             schoolImage.attr("src", theGoods[x].images.fixed_height_still.url);
             schoolImage.attr("data-still", theGoods[x].images.fixed_height_still.url)
             schoolImage.attr("data-animate", theGoods[x].images.fixed_height.url)
             schoolImage.attr("data-state", "still");
-            schoolImage.addClass("giphy");
+            schoolImage.addClass(`giphy ${x}`);
             console.log("image-still:", theGoods[x].images.fixed_height_still.url);
             // console.log("image-animate:", theGoods[x].images.fixed_height.url)
-            // imageDiv.append(p2);
+
+            imageDiv.append(trash);
             imageDiv.append(p);
-            // imageDiv.append(trash);
             imageDiv.prepend(schoolImage);
             imageDiv.prepend(p3);
             $("#images").append(imageDiv);
@@ -103,7 +105,19 @@ function displaySchoolInfo() {
                 $(this).attr("src", $(this).attr("data-still"));
                 $(this).attr("data-state", "still");
             }
+
         });
+
+        //Delete Button
+        $(".delete").on("click", function () {
+            let dump = $(this).attr("id")
+            deleted++
+            console.log("Dump:",dump)
+            console.log("Deleted:",deleted)
+            $(`.${dump}`).empty();
+    
+        });
+
     });
 
 }
@@ -126,11 +140,7 @@ $("#add-school").on("click", function (event) {
     };
 });
 
-//Delete Button
-// $(".delete").on("click", function () {
 
-
-// }
 
 // Adding a click event listener to all elements with a class of "school-btn"
 $(document).on("click", ".school-btn", displaySchoolInfo);
