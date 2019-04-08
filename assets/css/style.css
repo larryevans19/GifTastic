@@ -36,13 +36,18 @@ body {
     font-weight: bold;
 }
 
-#images {
+#images, a {
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 0 navy;
     display: inline-flex;
     flex-wrap: wrap;
     margin: 1rem;
+    text-align: center;
+}
+
+a {
+    font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 img {
@@ -50,9 +55,30 @@ img {
     margin-right: .15rem;
 }
 
-p {
+.top {
     background-color: rgb(179, 163, 105);
     text-align: center;
     margin-left: .15rem;
     margin-right: .15rem;
+    margin-bottom: 0rem;
+    margin-top: .25rem;
+}
+
+.bottom {
+    background-color: rgb(179, 163, 105);
+    text-align: center;
+    margin-left: .15rem;
+    margin-right: .15rem;
+    margin-bottom: 0rem;
+
+}
+
+.delete {
+    background-color: rgb(179, 163, 105);
+    text-align: center;
+    margin-left: .15rem;
+    margin-right: .15rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding-top: .25rem;
 }

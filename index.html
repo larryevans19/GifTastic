@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link rel="shortcut icon" type="image/png" href="assets/images/fave.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"
@@ -26,59 +28,73 @@
         <div class="page-header">
             <img id="head" src="assets/images/banner.png">
         </div>
-        <br>
         <div class="container">
-
 
             <div class="buttons" id="buttons-view">
             </div>
 
-            <br>
             <form id="input-form">
                 <div class="form-group">
-                    <label for="school-input" id="input-label">Don't see your favorite team above?  Find your favorite
-                        FBS college football team in the list below and click the button below to add them to the mix!"</label>                    </label>
+                    <label for="school-input" id="input-label">Don't see your favorite team above? Find your favorite
+                        power conference college football team in the list below and click the button below to add them
+                        to the mix!"</label>
                     <select class="form-control custom-select" id="school">
                         <option selected>Other Major College Football Teams</option>
                         <option id="Air Force Falcons" data-c="blue" data-b="white">Air Force Falcons</option>
                         <option id="Alabama Crimson Tide" data-c="crimson" data-b="white">Alabama Crimson Tide</option>
                         <option id="Arizona Wildcats" data-c="red" data-b="navy">Arizona Wildcats</option>
-                        <option id="Arizona State Sun Devils" data-c="maroon" data-b="gold">Arizona State Sun Devils</option>
+                        <option id="Arizona State Sun Devils" data-c="maroon" data-b="gold">Arizona State Sun Devils
+                        </option>
                         <option id="Arkansas Razorbacks" data-c="maroon" data-b="white">Arkansas Razorbacks</option>
-                        <option id="Army Black Knights" data-c="black" data-b="rgb(155, 125, 55)">Army Black Knights</option>>Army Black Knights</option>
-                        <option id="Baylor Bears" data-c="darkgreen" data-b="rgb(182, 162, 104)">Baylor Bears</option>Baylor Bears</option>
-                        <option id="California Golden Bears" data-c="navy" data-b="gold">California Golden Bears</option>
+                        <option id="Army Black Knights" data-c="black" data-b="rgb(155, 125, 55)">Army Black Knights
+                        </option>
+                        <option id="Baylor Bears" data-c="darkgreen" data-b="rgb(182, 162, 104)">Baylor Bears</option>
+                        <option id="California Golden Bears" data-c="navy" data-b="gold">California Golden Bears
+                        </option>
                         <option id="UCLA Bruins" data-c="rgb(182, 162, 104)" data-b="navy">UCLA Bruins</option>
                         <option id="UCF Knights" data-c="black" data-b="rgb(155, 125, 55)">UCF Knights</option>
-                        <option id="Colorado Buffaloes" data-c="black" data-b="rgb(155, 125, 55)">Colorado Buffaloes</option>
+                        <option id="Colorado Buffaloes" data-c="black" data-b="rgb(155, 125, 55)">Colorado Buffaloes
+                        </option>
                         <option id="Florida Gators" data-c="rgb(255, 104, 36)" data-b="blue">Florida Gators</option>
                         <option id="Georgia Bulldogs" data-c="red" data-b="black">Georgia Bulldogs</option>
-                        <option id="Illinois Fighting Illini" data-c="blue" data-b="rgb(255, 104, 36)">Illinois Fighting Illini</option>
+                        <option id="Illinois Fighting Illini" data-c="blue" data-b="rgb(255, 104, 36)">Illinois Fighting
+                            Illini</option>
                         <option id="Indiana Hoosiers" data-c="crimson" data-b="white">Indiana Hoosiers</option>
                         <option id="Iowa Hawkeyes" data-c="black" data-b="gold">Iowa Hawkeyes</option>
                         <option id="Iowa State Cyclones" data-c="maroon" data-b="gold">Iowa State Cyclones</option>
                         <option id="Kansas Jayhawks" data-c="blue" data-b="red">Kansas Jayhawks</option>
-                        <option id="Kansas State Wildcats" data-c="purple" data-b="silver">Kansas State Wildcats</option>
+                        <option id="Kansas State Wildcats" data-c="purple" data-b="silver">Kansas State Wildcats
+                        </option>
                         <option id="Kentucky Wildcats" data-c="blue" data-b="white">Kentucky Wildcats</option>
                         <option id="LSU Tigers" data-c="purple" data-b="gold">LSU Tigers</option>
                         <option id="Maryland Terrapins" data-c="red" data-b="gold">Maryland Terrapins</option>
                         <option id="Michigan Wolverines" data-c="gold" data-b="blue">Michigan Wolverines</option>
-                        <option id="Michigan State Spartan" data-c="darkgreen" data-b="white">Michigan State Spartans</option>
-                        <option id="Minnesota Golden Gophers" data-c="maroon" data-b="gold">Minnesota Golden Gophers</option>
+                        <option id="Michigan State Spartan" data-c="darkgreen" data-b="white">Michigan State Spartans
+                        </option>
+                        <option id="Minnesota Golden Gophers" data-c="maroon" data-b="gold">Minnesota Golden Gophers
+                        </option>
                         <option id="Ole Miss Rebels" data-c="blue" data-b="red">Ole Miss Rebels</option>
-                        <option id="Mississippi State Bulldogs" data-c="maroon" data-b="silver">Mississippi State Bulldogs</option>
+                        <option id="Mississippi State Bulldogs" data-c="maroon" data-b="silver">Mississippi State
+                            Bulldogs</option>
                         <option id="Missouri Tigers" data-c="black" data-b="gold">Missouri Tigers</option>
                         <option id="Navy Midshipmen" data-c="navy" data-b="rgb(182, 162, 104)">Navy Midshipmen</option>
                         <option id="Nebraska Cornhuskers" data-c="red" data-b="white">Nebraska Cornhuskers</option>
-                        <option id="Notre Dame Fighting Irish" data-c="navy" data-b="rgb(182, 162, 104)">Notre Dame Fighting Irish</option>
+                        <option id="Notre Dame Fighting Irish" data-c="navy" data-b="rgb(182, 162, 104)">Notre Dame
+                            Fighting Irish</option>
                         <option id="Oklahoma Sooners" data-c="maroon" data-b="white">Oklahoma Sooners</option>
-                        <option id="Oklahoma State Cowboys" data-c="black" data-b="rgb(255, 104, 36)">Oklahoma State Cowboys</option>
+                        <option id="Oklahoma State Cowboys" data-c="black" data-b="rgb(255, 104, 36)">Oklahoma State
+                            Cowboys</option>
                         <option id="Oregon Ducks" data-c="darkgreen" data-b="gold">Oregon Ducks</option>
-                        <option id="Oregon State Beavers" data-c="rgb(255, 104, 36)" data-b="black">Oregon State Beavers</option>
-                        <option id="Penn State Nittany Lions" data-c="navy" data-b="white">Penn State Nittany Lions</option>
-                        <option id="Purdue Boilermakers" data-c="black" data-b="rgb(155, 125, 55)">Purdue Boilermakers</option>
-                        <option id="Rutgers Scarlet Knights" data-c="red" data-b="white">Rutgers Scarlet Knights</option>
-                        <option id="South Carolina Gamecocks" data-c="maroon" data-b="black">South Carolina Gamecocks</option>
+                        <option id="Oregon State Beavers" data-c="rgb(255, 104, 36)" data-b="black">Oregon State Beavers
+                        </option>
+                        <option id="Penn State Nittany Lions" data-c="navy" data-b="white">Penn State Nittany Lions
+                        </option>
+                        <option id="Purdue Boilermakers" data-c="black" data-b="rgb(155, 125, 55)">Purdue Boilermakers
+                        </option>
+                        <option id="Rutgers Scarlet Knights" data-c="red" data-b="white">Rutgers Scarlet Knights
+                        </option>
+                        <option id="South Carolina Gamecocks" data-c="maroon" data-b="black">South Carolina Gamecocks
+                        </option>
                         <option id="USC Trojans" data-c="scarlet" data-b="gold">USC Trojans</option>
                         <option id="Stanford Cardinal" data-c="maroon" data-b="white">Stanford Cardinal</option>
                         <option id="TCU Horned Frogs" data-c="purple" data-b="silver">TCU Horned Frogs</option>
@@ -88,22 +104,24 @@
                         <option id="Texas A&M Aggies" data-c="maroon" data-b="white">Texas A&M Aggies</option>
                         <option id="Texas Tech Red Raiders" data-c="red" data-b="black">Texas Tech Red Raiders</option>
                         <option id="Utah Utes" data-c="darkred" data-b="white">Utah Utes</option>
-                        <option id="Vanderbilt Commodores" data-c="black" data-b="rgb(155, 125, 55)">Vanderbilt Commodores</option>
-                        <option id="Washington Huskies" data-c="purple" data-b="rgb(182, 162, 104)">Washington Huskies</option>
-                        <option id="Washington State Cougars" data-c="maroon" data-b="gray">Washington State Cougars</option>
-                        <option id="West Virginia Mountaineers" data-c="darkblue" data-b="gold">West Virginia Mountaineers</option>
+                        <option id="Vanderbilt Commodores" data-c="black" data-b="rgb(155, 125, 55)">Vanderbilt
+                            Commodores</option>
+                        <option id="Washington Huskies" data-c="purple" data-b="rgb(182, 162, 104)">Washington Huskies
+                        </option>
+                        <option id="Washington State Cougars" data-c="maroon" data-b="gray">Washington State Cougars
+                        </option>
+                        <option id="West Virginia Mountaineers" data-c="darkblue" data-b="gold">West Virginia
+                            Mountaineers</option>
                         <option id="Wisconsin Badgers" data-c="scarlet" data-b="white">Wisconsin Badgers</option>
                     </select>
                 </div>
-                <br>
 
                 <!-- Button triggers new movie to be added -->
                 <input id="add-school" type="submit" value="Add a College Football Team">
             </form>
-            <br>
 
             <div class="images" id="images">
-               
+
             </div>
 
         </div>
