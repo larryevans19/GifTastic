@@ -27,11 +27,32 @@ body {
 #input-label {
     color: navy;
     padding: 2px 3px;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: x-large;
     
 }
 
 .custom-select {
     font-weight: bold;
+}
+
+#images {
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 0 navy;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+img {
+    margin-left: .15rem;
+    margin-right: .15rem;
+}
+
+p {
+    background-color: rgb(179, 163, 105);
+    text-align: center;
+    margin-left: .15rem;
+    margin-right: .15rem;
 }

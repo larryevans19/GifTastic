@@ -6,11 +6,6 @@ let topicsC1 = ["white", "maroon", "rgb(255, 104, 36)", "maroon", "red", "red", 
 
 let topicsC2 = ["rgb(179, 163, 105)", "rgb(182, 162, 104)", "purple", "rgb(206, 184, 136)", "black", "black", "blue", "black", "white", "green", "navy", "gold", "navy", "rgb(255, 104, 36)"];
 
-// let choices = {
-//      schools: ["Alabama Crimson Tide", "Arizona Wildcats", "Arizona State Sun Devils", "Arkansas Razorbacks",
-// ]
-// }
-
 function gimmeButtons() {
     console.log(topics);
     console.log(topics.length)
@@ -97,27 +92,21 @@ function displaySchoolInfo() {
 }
 
 
-$("#school").select(function() {
-    // event.preventDefault();
-    let newC1 = $("#school").data("c");
-    let newC2 = ($(this).attr("data-b"));
-    console.log("C1:",newC1);
-    console.log("C2:",newC2);
-
-});
 // This function handles events where a topic button is clicked to be created
 $("#add-school").on("click", function (event) {
     event.preventDefault();
-    let newSchool = $("#school").val().toUpperCase();
-    console.log("Option:", newSchool)
-    let newC1 = $("#school").data("C1");
-    console.log("newC1:", $("#school").data("c"));
-    let newC2 = ($(this).data("C2"));
-    console.log("newC2:", newC2)
-    topics.push(newSchool);
-    topicsC1.push("white");
-    topicsC2.push("black");
-    gimmeButtons();
+    if ($("#school").val() !== "Other Major College Football Teams") {
+        let newSchool = $("#school").val();
+        console.log("Option:", newSchool)
+        let newC1 = $("#Air Force Falcons").attr("data-c");
+        console.log("newC1:", $("#Air Force Falcons").attr("data-c"));
+        let newC2 = ($(this).data("b"));
+        console.log("newC2:", newC2)
+        topics.push(newSchool);
+        topicsC1.push("white");
+        topicsC2.push("black");
+        gimmeButtons();
+    };
 });
 
 
