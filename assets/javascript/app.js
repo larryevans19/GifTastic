@@ -66,7 +66,7 @@ function displaySchoolInfo() {
             const p = $("<p class='bottom'>").html(`Rating: ${rating} <br> Title: ${title} <br> Source: ${source}`);
             // const trash = $("<i class='fas fa-trash-alt'></i>");
             const p2 = $("<p class='delete'>").html(`<i class="fas fa-dumpster">   Put Me in the Dumpster!</i>`);
-            const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download><i class="fas fa-download">OneTOUCHDOWNload!</i>`);
+            const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download="${title}" target="_blank"><i class="fas fa-download">OneTOUCHDOWNload!</i>`);
 
             let schoolImage = $("<img>");
 
@@ -77,7 +77,7 @@ function displaySchoolInfo() {
             schoolImage.attr("data-animate", theGoods[x].images.fixed_height.url)
             schoolImage.attr("data-state", "still");
             schoolImage.addClass("giphy");
-            // console.log("image-still:", theGoods[x].images.fixed_height_still.url);
+            console.log("image-still:", theGoods[x].images.fixed_height_still.url);
             // console.log("image-animate:", theGoods[x].images.fixed_height.url)
             // imageDiv.append(p2);
             imageDiv.append(p);
