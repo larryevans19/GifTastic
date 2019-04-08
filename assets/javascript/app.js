@@ -25,90 +25,87 @@ function gimmeButtons() {
 
     }
 
-    console.log("iterator",i)
+    console.log("iterator", i)
 }
 
 function displaySchoolInfo() {
 
-    $("button").on("click", function () {
-        $("#images").empty();
-        let theGoods = "";
-        const school = $(this).attr("data-name");
-        console.log("school:", school)
+    $("#images").empty();
+    let theGoods = "";
+    const school = $(this).attr("data-name");
+    console.log("school:", school)
 
-        const APIKey = "dc6zaTOxFJmzC";
-        //We set the limi to 25 in the query so that we can add future features to replace images we don't like or display extra messages
-        const queryURL = `https://api.giphy.com/v1/gifs/search?q=${school}%20College%20Football&limit=25&api_key=${APIKey}`;
-        console.log(queryURL)
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }) .then(function (response) {
-            console.log(response);
-            // console.log(response.data[0])
+    const APIKey = "dc6zaTOxFJmzC";
+    //We set the limi to 25 in the query so that we can add future features to replace images we don't like or display extra messages
+    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${school}%20College%20Football&limit=25&api_key=${APIKey}`;
+    console.log(queryURL)
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        // console.log(response.data[0])
 
-            let theGoods = response.data;
-            console.log("Length:", theGoods.length)
-            //for now we adjust the number of iterations based on the difference between the limit we set in the query and how many
-            //images we want to display.
-            for (var x = 0; x < (theGoods.length - 15); x++) {
+        theGoods = response.data;
+        console.log("Length:", theGoods.length)
+        //for now we adjust the number of iterations based on the difference between the limit we set in the query and how many
+        //images we want to display.
+        for (var x = 0; x < (theGoods.length - 15); x++) {
 
-                const imageDiv = $(`<div id="d${x}">`);
+            const imageDiv = $(`<div id="d${x}">`);
 
-                let rating = theGoods[x].rating;
-                let title = theGoods[x].title;
-                let source = theGoods[x].source_tld
+            let rating = theGoods[x].rating;
+            let title = theGoods[x].title;
+            let source = theGoods[x].source_tld
 
-                //If the payload doesn't return a source, we'll display "Not Available"
-                if (source == "") {
-                    source = "Not Available"
-                };
+            //If the payload doesn't return a source, we'll display "Not Available"
+            if (source == "") {
+                source = "Not Available"
+            };
 
-                const p = $("<p class='bottom'>").html(`Rating: ${rating} <br> Title: ${title} <br> Source: ${source}`);
-                // const trash = $("<i class='fas fa-trash-alt'></i>");
-                const p2 = $("<p class='delete'>").html(`<i class="fas fa-dumpster">   Put Me in the Dumpster!</i>`);
-                const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download><i class="fas fa-download">OneTOUCHDOWNload!</i>`);
+            const p = $("<p class='bottom'>").html(`Rating: ${rating} <br> Title: ${title} <br> Source: ${source}`);
+            // const trash = $("<i class='fas fa-trash-alt'></i>");
+            const p2 = $("<p class='delete'>").html(`<i class="fas fa-dumpster">   Put Me in the Dumpster!</i>`);
+            const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download><i class="fas fa-download">OneTOUCHDOWNload!</i>`);
 
-                let schoolImage = $("<img>");
+            let schoolImage = $("<img>");
 
 
-                schoolImage.attr("id", x);
-                schoolImage.attr("src", theGoods[x].images.fixed_height_still.url);
-                schoolImage.attr("data-still", theGoods[x].images.fixed_height_still.url)
-                schoolImage.attr("data-animate", theGoods[x].images.fixed_height.url)
-                schoolImage.attr("data-state", "still");
-                schoolImage.addClass("giphy");
-                // console.log("image-still:", theGoods[x].images.fixed_height_still.url);
-                // console.log("image-animate:", theGoods[x].images.fixed_height.url)
-                // imageDiv.append(p2);
-                imageDiv.append(p);
-                // imageDiv.append(trash);
-                imageDiv.prepend(schoolImage);
-                imageDiv.prepend(p3);
-                $("#images").append(imageDiv);
+            schoolImage.attr("id", x);
+            schoolImage.attr("src", theGoods[x].images.fixed_height_still.url);
+            schoolImage.attr("data-still", theGoods[x].images.fixed_height_still.url)
+            schoolImage.attr("data-animate", theGoods[x].images.fixed_height.url)
+            schoolImage.attr("data-state", "still");
+            schoolImage.addClass("giphy");
+            // console.log("image-still:", theGoods[x].images.fixed_height_still.url);
+            // console.log("image-animate:", theGoods[x].images.fixed_height.url)
+            // imageDiv.append(p2);
+            imageDiv.append(p);
+            // imageDiv.append(trash);
+            imageDiv.prepend(schoolImage);
+            imageDiv.prepend(p3);
+            $("#images").append(imageDiv);
 
+        }
+
+        //Click event to look for any time a .gif is clicked to start and stop the animation
+        $(".giphy").on("click", function () {
+            // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+            let state = $(this).attr("data-state");
+            console.log("state:", state);
+            // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+            // Then, set the image's data-state to animate
+            // Else set src to the data-still value
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
             }
-
-            //Click event to look for any time a .gif is clicked to start and stop the animation
-            $(".giphy").on("click", function () {
-                // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-                let state = $(this).attr("data-state");
-                console.log("state:", state);
-                // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-                // Then, set the image's data-state to animate
-                // Else set src to the data-still value
-                if (state === "still") {
-                    $(this).attr("src", $(this).attr("data-animate"));
-                    $(this).attr("data-state", "animate");
-                } else {
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                }
-            });
         });
-
-
     });
+
 }
 
 
@@ -131,7 +128,7 @@ $("#add-school").on("click", function (event) {
 
 //Delete Button
 // $(".delete").on("click", function () {
-    
+
 
 // }
 
