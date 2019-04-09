@@ -67,9 +67,10 @@ function displaySchoolInfo() {
             const p = $("<p class='bottom'>").html(`Rating: ${rating} <br> Title: ${title} <br> Source: ${source}`);
 
             const trash = $(`<p class='delete ${x}'>`).html(`<button class='delete' id='${x}'><i class="fas fa-dumpster"></i>  Put Me in the Dumpster!</button>`);
+            // const swap = $(`<p class='swap ${x}'>`).html(`<button class='swap' id='${x}'><i class="fas fa-sync-alt"></i>  Swap Me for Another Gif!</button>`);
 
-            const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download="${title}" target="_blank" id="fileRequest"> <i class="fas fa-download">   </i>OneTOUCHDOWNload!</button>`);
-
+            // const p3 = $("<p class='top'>").html(`<a href="${theGoods[x].url}" download="${title}" target="_blank" id="fileRequest"> <i class="fas fa-download">   </i>OneTOUCHDOWNload!</button>`);
+            const p3 = $("<p class='top'>").html(`<button class='download' id='${x}'><i class="fas fa-download"></i>OneTOUCHDOWNload!</button>`);
             let schoolImage = $("<img>");
 
 
@@ -83,10 +84,13 @@ function displaySchoolInfo() {
             // console.log("image-animate:", theGoods[x].images.fixed_height.url)
 
             imageDiv.append(trash);
+            // imageDiv.append(swap);
             imageDiv.append(p);
             imageDiv.prepend(schoolImage);
             imageDiv.prepend(p3);
             $("#images").append(imageDiv);
+
+            console.log("iterator:", x)
 
         }
 
@@ -108,16 +112,45 @@ function displaySchoolInfo() {
 
         });
 
-        //Delete Button
-        $(".delete").on("click", function () {
-            let dump = $(this).attr("id")
-            deleted++
-            console.log("Dump:",dump)
-            console.log("Deleted:",deleted)
-            $(`.${dump}`).empty();
-    
+        //Download Button Click Listener
+        $(".download").on("click", function () {
+            let finder = $(this).attr("id")
+            let path = theGoods[finder].images.fixed_height.url
+            console.log("Path:",path)
+            download(path, `AwesomeGif${finder}.gif`, "image/gif");
+
+            // download(path, "AwesomeGif.gif")
+            // console.log("Dump:", dump);
+            // console.log("Deleted:", deleted);
+            // $(`.${dump}`).empty();
+
         });
 
+        //Delete Button Click Listener
+        $(".delete").on("click", function () {
+            let dump = $(this).attr("id");
+            deleted++;
+            console.log("Dump:", dump);
+            console.log("Deleted:", deleted);
+            $(`.${dump}`).empty();
+
+        });
+
+
+
+        //FUTURE FEATURE!
+        //Swap Button
+        // $(".swap").on("click", function (x, theGoods, rating, title, source) {
+        //     let swapper = $(this).attr("id");
+        //     schoolImage.attr("src", theGoods[(x+1)].images.fixed_height_still.url);
+        //     schoolImage.attr("data-still", theGoods[x].images.fixed_height_still.url)
+        //     schoolImage.attr("data-animate", theGoods[x].images.fixed_height.url)
+        //     deleted++
+        //     console.log("Dump:", dump)
+        //     console.log("Deleted:", deleted)
+        //     $(`.${}`).empty();
+
+        // });
     });
 
 }

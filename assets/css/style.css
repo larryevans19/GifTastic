@@ -73,7 +73,7 @@ img {
 
 }
 
-.delete {
+.delete, .swap, .download {
     background-color: rgb(179, 163, 105);
     text-align: center;
     margin-left: .15rem;
